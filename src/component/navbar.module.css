@@ -1,0 +1,18 @@
+.NavContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+a {
+  color: gray;
+  text-decoration: none;
+  padding-bottom: 0;
+}
+
+/* a:hover, */
+a:active,
+a.active {
+  color: #fcb66b;
+  text-decoration: none;
+  border-bottom: 2px solid gray;
+}

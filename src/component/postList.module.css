@@ -1,0 +1,22 @@
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+}
+
+.postList {
+  background-color: rgba(0, 0, 0, 0.37);
+  margin: 1rem 0;
+
+  width: 60%;
+  padding: 0.4rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.postList:hover {
+  background-color: transparent;
+  box-shadow: 5px 10px 10px 10px rgba(32, 30, 30, 0.37);
+}
