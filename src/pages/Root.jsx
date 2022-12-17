@@ -7,7 +7,6 @@ const Root = () => {
   return (
     <>
       <NavBar />
-
       <main className={classes.main}>
         <Outlet />
       </main>

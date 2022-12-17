@@ -7,16 +7,16 @@ import { useLoaderData, Await } from "react-router-dom";
 const PostList = () => {
   const loader = useLoaderData();
 
-  let item = <p>Loading ...</p>;
+  let item = <p> Loading ... </p>;
+
+  if (loader.length === 0) {
+    item = <p>Wish list is empty 😥 Add item to get started</p>;
+  }
 
   if (loader.length > 0) {
     item = loader.map((el) => {
       return <Post key={el.id} loader={el} />;
     });
-  }
-
-  if (loader.length === 0) {
-    item = <p>No item avalable</p>;
   }
 
   return (

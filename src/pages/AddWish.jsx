@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { savePost } from "../api/api";
 import useValidation from "../UI/InputValidation";
 import classes from "./addWish.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AddWish = () => {
   const Valid = (value) => value.trim() !== ``;
+  const navigate = useNavigate();
 
   const [submitting, setIsSubmitting] = useState(false);
 
@@ -46,6 +48,7 @@ const AddWish = () => {
     savePost(userInput);
     clearPostInput();
     clearTitleInputField();
+    navigate("/home/Posts");
 
     setIsSubmitting(false);
   };

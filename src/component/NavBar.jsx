@@ -10,14 +10,14 @@ const NavBar = () => {
           className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
-          <h3 className={classes.navItem}> View List </h3>
+          <h3 className={classes.navItem}> View Wish List </h3>
         </NavLink>
         <NavLink
           to="/newItem"
           className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
-          <h3 className={classes.navItem}> Add to list </h3>
+          <h3 className={classes.navItem}> Add to Wish list </h3>
         </NavLink>
       </div>
     </>

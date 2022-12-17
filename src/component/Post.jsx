@@ -7,7 +7,7 @@ const Post = (props) => {
 
   const { userName, post, id } = props.loader;
   const viewDetiles = () => {
-    console.log(userName, id);
+    // console.log(userName, id.slice(1));
 
     navigate(`/home/${id}`);
   };

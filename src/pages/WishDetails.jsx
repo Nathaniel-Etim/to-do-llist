@@ -1,39 +1,14 @@
 import React, { Suspense } from "react";
 import { useParams, useLoaderData, Await } from "react-router-dom";
 import classes from "./wishDetails.module.css";
-import { getPost } from "../api/api";
-
-const userPost = [
-  {
-    id: `id1`,
-    userName: `nathaniel etim`,
-    text: `react is interesting`,
-  },
-  {
-    id: `id2`,
-    userName: `Jonas Eman`,
-    text: `i want to reach the stars but i have been greezing the starts`,
-  },
-  {
-    id: `id3`,
-    userName: `Joseph Etim`,
-    text: `i am a full start developer `,
-  },
-  {
-    id: `id4`,
-    userName: `richard `,
-    text: `i will get 1million b4 the end of 2022`,
-  },
-];
+import { getPosts } from "../api/api";
 
 const WishDetails = () => {
-  const { id } = useParams();
   const loader = useLoaderData();
+  const { id } = useParams();
 
-  console.log(loader);
-
-  const postDetails = userPost?.filter((user) => {
-    return user.id === id;
+  const userDetails = loader.filter((el) => {
+    return el.id === id;
   });
 
   return (
@@ -41,10 +16,14 @@ const WishDetails = () => {
       <div className={classes.detailContainer}>
         <Suspense>
           <Await resolve={loader}>
-            <div className={classes.detailItem} key={postDetails.id}>
-              <p>{postDetails.text}</p>
-              <span>{postDetails.userName}</span>
-            </div>
+            {userDetails.map((el) => {
+              return (
+                <div className={classes.detailItem} key={el.id}>
+                  <p>{el.post}</p>
+                  <span>{el.userName}</span>
+                </div>
+              );
+            })}
           </Await>
         </Suspense>
       </div>
@@ -55,9 +34,8 @@ const WishDetails = () => {
 export default WishDetails;
 
 export async function loader() {
-  // const { id } = useParams();
   try {
-    const data = await getPost();
+    const data = await getPosts();
     return data;
   } catch (err) {
     console.log(err);
